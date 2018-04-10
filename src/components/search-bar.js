@@ -5,8 +5,28 @@ import React, { Component } from 'react';
 };*/
 
 class SearchBar extends Component {
+    constructor(props){
+        super(props);
+        this.state = { term: 'Starting value' };
+    }
+
     render() {
-        return <input />;
+        return (
+            <div>
+                <input 
+                    id="txtSearch"
+                    value= {this.state.term}
+                    onChange={this.inputChangeHandler} 
+                />
+                
+
+            </div>
+        )
+    }
+
+    inputChangeHandler = (event) => {
+        this.setState({ term: event.target.value});
+        console.log(this.state.term);
     }
 }
 
